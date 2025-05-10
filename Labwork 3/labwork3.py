@@ -54,5 +54,21 @@ def grad_desc(w0, w1, w2, x1, x2, y, lr, times):
         print(f"w0: {round(w0, 2)}, w1: {round(w1, 2)}, w2: {round(w2, 2)} loss: {round(loss, 2)}")
     return w0, w1, w2
 
-w0, w1, w2 = grad_desc(w0, w1, w2, x1, x2, y, 0.01, 500000)
+w0, w1, w2 = grad_desc(w0, w1, w2, x1, x2, y, 0.9, 10000)
 
+# Plotting the logistic regression line
+plt.scatter(x1, x2, c=y)
+x = [min(x1), max(x1)]
+y = [-(w0 + w1 * i) / w2 for i in x]
+plt.plot(x, y)
+plt.ylim(-15, 15)
+plt.xlabel('x1')
+plt.ylabel('x2')
+plt.title('Logistic Regression Line')
+plt.show()
+# Plotting the loss function
+plt.plot(l)
+plt.xlabel('Iterations')
+plt.ylabel('Loss')
+plt.title('Loss Function')
+plt.show()

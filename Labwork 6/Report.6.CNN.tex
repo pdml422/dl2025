@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Labwork 6: CNN}
+\author{Phi Doan Minh Luong - 2440046}
+\date{May 2025}
+
+\begin{document}
+
+\maketitle
+
+\setlength\parindent{0pt}
+
+\section{Design}
+\subsection{Convolutional Layers}
+- The architecture follows the VGG19 design, consisting of convolutional layers with increasing filter sizes (64, 128, 256, 512)
+
+- Each convolutional layer uses a kernel size of 3x3, stride of 1, and padding of 1 to preserve spatial dimensions
+
+- Batch normalization is applied after each convolution to stabilize training
+
+- ReLU activation is used for non-linearity
+
+\subsection{Pooling Layers}
+- Max-pooling layers with a kernel size of 2x2 and stride of 2 are interspersed to reduce spatial dimensions
+
+\subsection{Fully Connected Layers}
+- After the convolutional layers, the feature maps are flattened and passed through three fully connected layers
+
+- The first two fully connected layers have 4096 units each, followed by ReLU activation and dropout for regularization
+
+- The final fully connected layer outputs predictions for the number of classes
+
+\subsection{Input and Output}
+- The network accepts input images of size 224x224x3 and outputs class probabilities for the specified number of classes
+
+\section{Implementation}
+\subsection{Class Definition}
+
+- The VGG19 class is implemented using PyTorch's nn.Module
+
+- The convolutional layers are dynamically created based on the VGG\_architecture list
+
+\subsection{Forward pass}
+- The input is passed through the convolutional layers, flattened, and then processed by the fully connected layers
+
+\subsection{Training and Testing}
+- The network is trained using the CIFAR-10 dataset with cross-entropy loss and the Adam optimizer
+
+- Accuracy is evaluated on the test set
+
+\end{document}

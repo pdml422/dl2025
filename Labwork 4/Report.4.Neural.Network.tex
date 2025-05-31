@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{listings}
+
+\title{Labwork 4: Neural Network}
+\author{Phi Doan Minh Luong - 2440046}
+\date{May 2025}
+
+\begin{document}
+
+\maketitle
+
+\setlength\parindent{0pt}
+
+\section{Network Architecture}
+
+\subsection{Neuron class}
+- Represents a single neuron with weights, bias, and an activation function
+
+- The activation function used is a sigmoid function, and the output is binary (0 or 1) based on a threshold of 0.5
+
+\subsection{Layer class}
+- Represents a layer of neurons
+
+- Each layer contains multiple neurons, and the forward method computes the output of all neurons in the layer
+
+\subsection{Network class}
+- Represents the entire neural network
+
+- The forward method contains multiple layers and sequentially propagates inputs through all layers.
+
+\section{Implementation}
+\subsection{Initialization}
+- The network is initialized with predefined weights and biases for each layer
+
+- The weights and biases are stored as lists of lists, where each sublist corresponds to a layer
+
+\subsection{Forward propagation}
+- Inputs are passed through each layer sequentially
+
+- Each layer computes its output using the forward method, which activates all neurons in the layer
+
+\section{XOR network}
+- When running the XOR network example, after initializing the network weight as in the slides, we also need to round up the output when running the activate function in the Neuron class.
+
+\begin{lstlisting}[language=Python]
+    self.output = 1 if self.sigmoid(linear_sum) > 0.5 else 0
+\end{lstlisting}
+
+- The result is the same as the slide
+
+
+\end{document}
